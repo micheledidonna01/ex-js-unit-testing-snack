@@ -91,22 +91,55 @@ const { createSlug } = require("./function")
 //     expect(posts).toHaveLength(1)
 //  })
 
+
+
 //Snack 9(Bonus)
 
+// let posts;
+
+// beforeEach(() =>{
+//     posts = [
+//         {
+//             id:1,
+//             nome:'Michele Didonna',
+//             slug:'micheledidonna',
+//         },
+//         {
+//             id:2,
+//             nome:'Carmen Polacca',
+//             slug:'carmenpolacca',
+//         },
+//     ]
+// })
+
+// afterEach(() => {
+//     posts = [];
+// })
+// const {addPostExist} = require('./function.js');
+
+// test("Se si tenta di aggiungere un post con un id o uno slug già esistente, la funzione addPost deve lanciare un errore.", () => { 
+//     expect(() => addPostExist(posts, { id: 1, nome: 'Pierino', slug: 'ciccio' }).toThrow("Id esiste già"));
+//     expect(() => addPostExist(posts, { id: 4, nome: 'Giovanni', slug: 'carmenpolacca' }).toThrow("Slug già esiste"));
+// })
+
+
+//Snack 10(Bonus)
 
 let posts;
 
-beforeEach(() =>{
+beforeEach(() => {
     posts = [
         {
-            id:1,
-            nome:'Michele Didonna',
-            slug:'micheledidonna',
+            id: 1,
+            nome: 'Michele Didonna',
+            slug: 'micheledidonna',
+            quantity: 1
         },
         {
-            id:2,
-            nome:'Carmen Polacca',
-            slug:'carmenpolacca',
+            id: 2,
+            nome: 'Carmen Polacca',
+            slug: 'carmenpolacca',
+            quantity: 1
         },
     ]
 })
@@ -114,13 +147,20 @@ beforeEach(() =>{
 afterEach(() => {
     posts = [];
 })
-const {addPostExist} = require('./function.js');
+const { createSlug4 } = require('./function.js');
 
-test("Se si tenta di aggiungere un post con un id o uno slug già esistente, la funzione addPost deve lanciare un errore.", () => { 
-    expect(() => addPostExist(posts, { id: 1, nome: 'Pierino', slug: 'ciccio' }).toThrow("Id esiste già"));
-    expect(() => addPostExist(posts, { id: 4, nome: 'Giovanni', slug: 'carmenpolacca' }).toThrow("Slug già esiste"));
+test("Se viene passato un array di post come secondo argomento, la funzione createSlug incrementa di 1 se lo slug esiste già.", () => {
+    expect(() => {
+        createSlug({ 
+            id: 5,
+            nome: 'Glorio', 
+            slug: 'carmenpolacca', 
+            quantity: 1 
+        }, posts).toEqual({
+            id: 2,
+            nome: 'Carmen Polacca',
+            slug: 'carmenpolacca',
+            quantity: 2
+        })
+    })
 })
-
-
-
-//Gli errori devono essere chiari e distinti, es. "Slug già esistente" e “Id già esistente”.

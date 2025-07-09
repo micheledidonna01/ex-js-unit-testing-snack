@@ -1,26 +1,31 @@
-
+//snack1
 function getInitials(nome) {
     const firstLetter = nome.split(" ").map(word => word.charAt(0)).join("");
     return firstLetter;
 }
 
+//snack2
 function createSlug(nome){
     const lowerNome = nome.toLowerCase();
     return lowerNome
 }
 
-
+//snack3
 function average(x, y){
     const avg = (x + y)/2;
     console.log(avg);
     return avg;
 }
 
+
+//snack4
 function createSlug2(stringa){
     const stringModify = stringa.replace(" ", "-");
     return stringModify
 }
 
+
+//snack5
 function isPalindrome(stringa){
     const cleaned = stringa
         .toLowerCase()
@@ -30,6 +35,7 @@ function isPalindrome(stringa){
     return cleaned === reversed;
 }
 
+//snack6
 function createSlug3(title){
     if(title === " " || title === null || title === undefined){
         throw new Error("Titolo non valido")
@@ -64,6 +70,7 @@ function findPostById(array, id){
 }
 
 
+//snack8
 function addPost(postsArray, newPost) {
     return postsArray.push(newPost);
 }
@@ -73,6 +80,7 @@ function removePost(postsArray, id) {
     postsArray.splice(post, 1);
 }
 
+//snack9
 function addPostExist(postsArray, newPost) {
     let existId = postsArray.find(p => p.id === newPost.id); 
     let existSlug = postsArray.find(p => p.slug === newPost.slug); 
@@ -89,6 +97,18 @@ function addPostExist(postsArray, newPost) {
 
 }
 
+//snack 10
+function createSlug4(newPost, postsArray){
+    postsArray = postsArray.map(p => {
+        if(p.slug === newPost.slug){
+            return {
+                ...p,
+                quantity: p.quantity + 1
+            }
+        }
+    })
+}
+
 module.exports = {
     getInitials,
     createSlug,
@@ -99,5 +119,6 @@ module.exports = {
     findPostById,
     addPost,
     removePost,
-    addPostExist
+    addPostExist,
+    createSlug4
 };
