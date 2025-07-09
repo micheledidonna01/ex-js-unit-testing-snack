@@ -30,11 +30,19 @@ function isPalindrome(stringa){
     return cleaned === reversed;
 }
 
+function createSlug3(title){
+    if(title === " " || title === null || title === undefined){
+        throw new Error("Titolo non valido")
+    }else{
+        return true
+    }
+}
 
 module.exports = {
     getInitials,
     createSlug,
     average,
     createSlug2,
-    isPalindrome
+    isPalindrome,
+    createSlug3
 };

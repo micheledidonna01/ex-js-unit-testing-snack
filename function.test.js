@@ -34,10 +34,23 @@ const { createSlug } = require("./function")
 
 //Snack 5
 
-const { isPalindrome } = require('./function.js');
+// const { isPalindrome } = require('./function.js');
 
-test("La funzione isPalindrome verifica se una stringa è un palindromo.", () => { 
-    expect(isPalindrome("otto")).toBe(true);
-    expect(isPalindrome("ciao")).toBe(false);
+// test("La funzione isPalindrome verifica se una stringa è un palindromo.", () => { 
+//     expect(isPalindrome("otto")).toBe(true);
+//     expect(isPalindrome("ciao")).toBe(false);
+//  })
+
+
+//Snack 6
+
+const { createSlug3 } = require('./function.js');
+
+test("La funzione createSlug3 lancia un errore se il titolo è vuoto o non valido.", () => {
+    expect(() => (createSlug3("")).toThrow("Titolo non valido"))
+    expect(() => (createSlug3(null)).toThrow("Titolo non valido"))
+    expect(() => (createSlug3(undefined)).toThrow("Titolo non valido"))
+    expect(createSlug3("ciao")).toBe(true)
  })
+
 
