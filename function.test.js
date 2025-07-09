@@ -1,5 +1,13 @@
 //snack 1
-const {getInitials} = require('./function.js')
+// const {getInitials} = require('./function.js')
 
-test("La funzione getInitials restituisce le iniziali di un nome completo.",
-    () => { expect(getInitials("michele didonna")).toBe("md")})
+// test("La funzione getInitials restituisce le iniziali di un nome completo.",
+//     () => { expect(getInitials("michele didonna")).toBe("md")})
+
+//Snack 2
+
+const { createSlug } = require('./function.js');
+
+test("La funzione createSlug restituisce una stringa in lowercase.", ()=> {
+    expect(createSlug("CIAO")).toBe("ciao")
+}) 

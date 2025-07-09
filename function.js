@@ -4,7 +4,13 @@ function getInitials(nome) {
     return firstLetter;
 }
 
+function createSlug(nome){
+    const lowerNome = nome.toLowerCase();
+    return lowerNome
+}
+
 module.exports = {
     getInitials,
+    createSlug,
 
 };
