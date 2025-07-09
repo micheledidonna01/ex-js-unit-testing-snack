@@ -65,29 +65,62 @@ const { createSlug } = require("./function")
 
 //Snack 8(Bonus)
 
-const {addPost} = require('./function.js');
-const {removePost} = require('./function.js');
+// const {addPost} = require('./function.js');
+// const {removePost} = require('./function.js');
+
+// let posts;
+
+// beforeEach(() => {
+//     posts = [
+//         { id: 1, nome: 'Ciccio', anni: 19 },
+//         { id: 3, nome: 'Pedro', anni: 34 },
+//     ];
+// });
+
+// afterEach(() => {
+//     posts = [];
+// });
+
+// test("Dopo aver aggiunto un post con la funzione addPost, l'array posts deve contenere un elemento in più.", () => {
+//     addPost(posts, { id: 2, nome: 'Paolo', anni: 30 });
+//     expect(posts).toHaveLength(3);
+// });
+
+// test("Dopo aver rimosso un post con la funzione removePost, l'array posts deve contenere un elemento in meno.", () => {
+//     removePost(posts, 1);
+//     expect(posts).toHaveLength(1)
+//  })
+
+//Snack 9(Bonus)
+
 
 let posts;
 
-beforeEach(() => {
+beforeEach(() =>{
     posts = [
-        { id: 1, nome: 'Ciccio', anni: 19 },
-        { id: 3, nome: 'Pedro', anni: 34 },
-    ];
-});
+        {
+            id:1,
+            nome:'Michele Didonna',
+            slug:'micheledidonna',
+        },
+        {
+            id:2,
+            nome:'Carmen Polacca',
+            slug:'carmenpolacca',
+        },
+    ]
+})
 
 afterEach(() => {
     posts = [];
-});
+})
+const {addPostExist} = require('./function.js');
 
-test("Dopo aver aggiunto un post con la funzione addPost, l'array posts deve contenere un elemento in più.", () => {
-    addPost(posts, { id: 2, nome: 'Paolo', anni: 30 });
-    expect(posts).toHaveLength(3);
-});
+test("Se si tenta di aggiungere un post con un id o uno slug già esistente, la funzione addPost deve lanciare un errore.", () => { 
+    expect(() => addPostExist(posts, { id: 1, nome: 'Pierino', slug: 'ciccio' }).toThrow("Id esiste già"));
+    expect(() => addPostExist(posts, { id: 4, nome: 'Giovanni', slug: 'carmenpolacca' }).toThrow("Slug già esiste"));
+})
 
-test("Dopo aver rimosso un post con la funzione removePost, l'array posts deve contenere un elemento in meno.", () => {
-    removePost(posts, 1);
-    expect(posts).toHaveLength(1)
- })
 
+
+//Gli errori devono essere chiari e distinti, es. "Slug già esistente" e “Id già esistente”.

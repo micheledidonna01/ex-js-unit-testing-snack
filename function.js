@@ -73,6 +73,22 @@ function removePost(postsArray, id) {
     postsArray.splice(post, 1);
 }
 
+function addPostExist(postsArray, newPost) {
+    let existId = postsArray.find(p => p.id === newPost.id); 
+    let existSlug = postsArray.find(p => p.slug === newPost.slug); 
+
+    if(existId){
+        throw new Error("Id esiste già")
+    }
+
+    if(existSlug){
+        throw new Error('Slug esiste già')
+    }
+
+    postsArray.push(newPost);
+
+}
+
 module.exports = {
     getInitials,
     createSlug,
@@ -83,4 +99,5 @@ module.exports = {
     findPostById,
     addPost,
     removePost,
+    addPostExist
 };
