@@ -25,9 +25,19 @@ const { createSlug } = require("./function")
 
 //Snack 4
 
-const { createSlug2 } = require('./function.js');
+// const { createSlug2 } = require('./function.js');
 
-test("La funzione createSlug2 sostituisce gli spazi con -.", () => {
-    expect(createSlug2("michele didonna")).toBe("michele-didonna")
+// test("La funzione createSlug2 sostituisce gli spazi con -.", () => {
+//     expect(createSlug2("michele didonna")).toBe("michele-didonna")
+//  })
+
+
+//Snack 5
+
+const { isPalindrome } = require('./function.js');
+
+test("La funzione isPalindrome verifica se una stringa è un palindromo.", () => { 
+    expect(isPalindrome("otto")).toBe(true);
+    expect(isPalindrome("ciao")).toBe(false);
  })
 

@@ -21,9 +21,20 @@ function createSlug2(stringa){
     return stringModify
 }
 
+function isPalindrome(stringa){
+    const cleaned = stringa
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, ""); // Rimuove tutto tranne lettere e numeri
+
+    const reversed = cleaned.split("").reverse().join("");
+    return cleaned === reversed;
+}
+
+
 module.exports = {
     getInitials,
     createSlug,
     average,
-    createSlug2
+    createSlug2,
+    isPalindrome
 };
