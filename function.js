@@ -63,6 +63,16 @@ function findPostById(array, id){
     return obj;
 }
 
+
+function addPost(postsArray, newPost) {
+    return postsArray.push(newPost);
+}
+
+function removePost(postsArray, id) {
+    let post = postsArray.findIndex(p => p.id === id)
+    postsArray.splice(post, 1);
+}
+
 module.exports = {
     getInitials,
     createSlug,
@@ -71,5 +81,6 @@ module.exports = {
     isPalindrome,
     createSlug3,
     findPostById,
-    
+    addPost,
+    removePost,
 };

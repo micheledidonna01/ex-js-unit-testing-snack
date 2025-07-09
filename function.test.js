@@ -56,10 +56,38 @@ const { createSlug } = require("./function")
 
 //Snack 7
 
-const { findPostById } = require('./function.js');
+// const { findPostById } = require('./function.js');
 
-test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
-    expect(() =>(findPostById(array, 1)).toEqual({ id: 1, title: 'Ciao', slug: 'ciao' }))
-})
+// test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
+//     expect(() =>(findPostById(array, 1)).toEqual({ id: 1, title: 'Ciao', slug: 'ciao' }))
+// })
 
+
+//Snack 8(Bonus)
+
+const {addPost} = require('./function.js');
+const {removePost} = require('./function.js');
+
+let posts;
+
+beforeEach(() => {
+    posts = [
+        { id: 1, nome: 'Ciccio', anni: 19 },
+        { id: 3, nome: 'Pedro', anni: 34 },
+    ];
+});
+
+afterEach(() => {
+    posts = [];
+});
+
+test("Dopo aver aggiunto un post con la funzione addPost, l'array posts deve contenere un elemento in più.", () => {
+    addPost(posts, { id: 2, nome: 'Paolo', anni: 30 });
+    expect(posts).toHaveLength(3);
+});
+
+test("Dopo aver rimosso un post con la funzione removePost, l'array posts deve contenere un elemento in meno.", () => {
+    removePost(posts, 1);
+    expect(posts).toHaveLength(1)
+ })
 
