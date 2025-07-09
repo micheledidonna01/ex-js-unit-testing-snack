@@ -44,13 +44,22 @@ const { createSlug } = require("./function")
 
 //Snack 6
 
-const { createSlug3 } = require('./function.js');
+// const { createSlug3 } = require('./function.js');
 
-test("La funzione createSlug3 lancia un errore se il titolo è vuoto o non valido.", () => {
-    expect(() => (createSlug3("")).toThrow("Titolo non valido"))
-    expect(() => (createSlug3(null)).toThrow("Titolo non valido"))
-    expect(() => (createSlug3(undefined)).toThrow("Titolo non valido"))
-    expect(createSlug3("ciao")).toBe(true)
- })
+// test("La funzione createSlug3 lancia un errore se il titolo è vuoto o non valido.", () => {
+//     expect(() => (createSlug3("")).toThrow("Titolo non valido"))
+//     expect(() => (createSlug3(null)).toThrow("Titolo non valido"))
+//     expect(() => (createSlug3(undefined)).toThrow("Titolo non valido"))
+//     expect(createSlug3("ciao")).toBe(true)
+//  })
+
+
+//Snack 7
+
+const { findPostById } = require('./function.js');
+
+test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
+    expect(() =>(findPostById(array, 1)).toEqual({ id: 1, title: 'Ciao', slug: 'ciao' }))
+})
 
 

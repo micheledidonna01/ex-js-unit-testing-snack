@@ -38,11 +38,38 @@ function createSlug3(title){
     }
 }
 
+//Snack 7
+const array = [
+    {
+        id: 1,
+        title: 'Ciao',
+        slug:'ciao'
+    },
+    {
+        id: 2,
+        title: 'Ciao2',
+        slug:'ciao2'
+    },
+    {
+        id: 3,
+        title: 'Ciao3',
+        slug:'ciao3'
+    },
+
+];
+
+function findPostById(array, id){
+    const obj = array.find(obj => obj.id === id)
+    return obj;
+}
+
 module.exports = {
     getInitials,
     createSlug,
     average,
     createSlug2,
     isPalindrome,
-    createSlug3
+    createSlug3,
+    findPostById,
+    
 };
