@@ -16,9 +16,14 @@ function average(x, y){
     return avg;
 }
 
+function createSlug2(stringa){
+    const stringModify = stringa.replace(" ", "-");
+    return stringModify
+}
 
 module.exports = {
     getInitials,
     createSlug,
-    average
+    average,
+    createSlug2
 };
